@@ -27,11 +27,24 @@ export class EmployeeService {
     return this.http.get<APIResponseModel>("https://freeapi.miniprojectideas.com/api/EmployeeLeave/GetDepartments").pipe(
       map((res: any) => res.data)
     );
+  }
 
 
-
+  getRoles():Observable<any[]> {
+    return this.http.get<APIResponseModel>("https://freeapi.miniprojectideas.com/api/EmployeeLeave/GetAllRoles").pipe(
+      map((res: any) => res.data)
+    );
 
   }
+
+
+   onAddEmployee(obj: any) {
+    return this.http.post("https://freeapi.miniprojectideas.com/api/EmployeeLeave/CreateEmployee", obj);
+  }
+
+
+
+
 
 
 //   In Angular, when you call an API using HttpClient, it returns an Observable.
